@@ -76,7 +76,7 @@ struct vector_cfg final {
 /** @cond INTERNAL */
 
 template<class Ser, class S, class V>
-inline ser_result_type
+inline tag_read<Ser>
 read(
 	Ser& ser,
 	vector_cfg<S, V, false>& cfg
@@ -93,7 +93,7 @@ read(
 }
 
 template<class Ser, class S, class V, bool const C>
-inline ser_result_type
+inline tag_write<Ser>
 write(
 	Ser& ser,
 	vector_cfg<S, V, C> const& cfg
