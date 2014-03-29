@@ -433,6 +433,19 @@ using tag_serialize = enable_ser<
 >;
 
 /**
+	Loose @c serialize() function return tag.
+
+	@note This tag assumes the serializer type has already been
+	validated.
+
+	@tparam constraints Constraints.
+*/
+template<bool const constraints = true>
+using tag_serialize_loose = enable_ser<
+	constraints
+>;
+
+/**
 	@c read() function return tag.
 
 	@note This always constrains by is_input_serializer.
@@ -447,6 +460,19 @@ using tag_read = enable_ser<
 >;
 
 /**
+	Loose @c read() function return tag.
+
+	@note This tag assumes the serializer type has already been
+	validated.
+
+	@tparam constraints Constraints.
+*/
+template<bool const constraints = true>
+using tag_read_loose = enable_ser<
+	constraints
+>;
+
+/**
 	@c write() function return tag.
 
 	@note This always constrains by is_output_serializer.
@@ -457,6 +483,19 @@ using tag_read = enable_ser<
 template<class Ser, bool const constraints = true>
 using tag_write = enable_ser<
 	is_output_serializer<Ser>::value &&
+	constraints
+>;
+
+/**
+	Loose @c write() function return tag.
+
+	@note This tag assumes the serializer type has already been
+	validated.
+
+	@tparam constraints Constraints.
+*/
+template<bool const constraints = true>
+using tag_write_loose = enable_ser<
 	constraints
 >;
 
