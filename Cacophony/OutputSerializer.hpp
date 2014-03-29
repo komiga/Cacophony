@@ -12,8 +12,8 @@ see @ref index or the accompanying LICENSE file for full text.
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
-#include <Cacophony/utility.hpp>
 #include <Cacophony/traits.hpp>
+#include <Cacophony/utility.hpp>
 #include <Cacophony/BaseSerializer.hpp>
 
 namespace Cacophony {

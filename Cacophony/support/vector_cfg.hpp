@@ -1,6 +1,6 @@
 /**
 @file support/vector_cfg.hpp
-@brief Vector configuration.
+@brief Vector serialization configuration.
 
 @author Timothy Howard
 @copyright 2014 Timothy Howard under the MIT license;
@@ -12,8 +12,8 @@ see @ref index or the accompanying LICENSE file for full text.
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
-#include <Cacophony/utility.hpp>
 #include <Cacophony/traits.hpp>
+#include <Cacophony/utility.hpp>
 #include <Cacophony/support/sequence.hpp>
 
 #include <duct/debug.hpp>

@@ -11,8 +11,8 @@ see @ref index or the accompanying LICENSE file for full text.
 #define CACOPHONY_BINARYSERIALIZER_HPP_
 
 #include <Cacophony/config.hpp>
-#include <Cacophony/utility.hpp>
 #include <Cacophony/traits.hpp>
+#include <Cacophony/utility.hpp>
 #include <Cacophony/detail/gr_core.hpp>
 #include <Cacophony/InputSerializer.hpp>
 #include <Cacophony/OutputSerializer.hpp>
