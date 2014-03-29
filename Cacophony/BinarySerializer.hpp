@@ -322,4 +322,6 @@ write(
 
 } // namespace Cacophony
 
+#include <Cacophony/detail/gr_unconfigure.hpp>
+
 #endif // CACOPHONY_BINARYSERIALIZER_HPP_
