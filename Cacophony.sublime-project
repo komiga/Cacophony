@@ -43,10 +43,7 @@
 			],
 			"file_exclude_patterns": [
 				"Makefile",
-				"*.make",
-				"general/headers",
-				"unit/binary",
-				"unit/sequence"
+				"*.make"
 			]
 		}
 	],
