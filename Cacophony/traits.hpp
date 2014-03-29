@@ -22,7 +22,7 @@ see @ref index or the accompanying LICENSE file for full text.
 
 namespace Cacophony {
 namespace detail {
-	struct unimplemented;
+struct unimplemented {};
 }
 }
 
