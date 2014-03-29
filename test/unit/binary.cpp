@@ -4,8 +4,10 @@
 #include <Cacophony/utility.hpp>
 #include <Cacophony/traits.hpp>
 #include <Cacophony/BinarySerializer.hpp>
+#include <Cacophony/support/std_string.hpp>
 #include <Cacophony/support/std_vector.hpp>
 
+#include <string>
 #include <vector>
 #include <iomanip>
 #include <iostream>
@@ -86,9 +88,18 @@ X2Base::~X2Base() = default;
 
 struct X2 : public X2Base {
 	unsigned b;
+	std::string s;
 
 	~X2() override = default;
-	X2(signed a, unsigned b) : X2Base(a), b(b) {}
+	X2(
+		signed a,
+		unsigned b,
+		std::string s
+	)
+		: X2Base(a)
+		, b(b)
+		, s(s)
+	{}
 
 	template<class Ser>
 	inline Cacophony::tag_serialize<Ser>
@@ -96,7 +107,8 @@ struct X2 : public X2Base {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(
 			Cacophony::base_cast<X2Base>(self),
-			self.b
+			self.b,
+			self.s
 		);
 	}
 
@@ -104,7 +116,8 @@ struct X2 : public X2Base {
 	operator==(X2 const& other) const noexcept {
 		return
 			X2Base::operator==(other) &&
-			this->b == other.b
+			this->b == other.b &&
+			this->s == other.s
 		;
 	}
 
@@ -144,7 +157,7 @@ main() {
 		<< std::is_const<std::remove_reference<decltype(cs2)>::type>::value << '\n'
 	;
 
-	duct::IO::dynamic_streambuf buf{64u, 0u};
+	duct::IO::dynamic_streambuf buf{128u, 0u};
 
 	std::ostream ostream{&buf};
 	OSer oser{ostream, duct::Endian::little};
@@ -152,7 +165,7 @@ main() {
 	X1 const x1_out{42, -3, {{1, 2, 3}}};
 	oser(x1_out);
 
-	X2 const x2_out{-3, 42};
+	X2 const x2_out{-3, 42, "pink llamas"};
 	oser(x2_out);
 
 	buf.commit();
@@ -164,7 +177,7 @@ main() {
 	iser(x1_in);
 	DUCT_ASSERTE(x1_out == x1_in);
 
-	X2 x2_in{signed{~0}, ~0u};
+	X2 x2_in{signed{~0}, ~0u, ""};
 	DUCT_ASSERTE(x2_out != x2_in);
 	iser(x2_in);
 	DUCT_ASSERTE(x2_out == x2_in);
