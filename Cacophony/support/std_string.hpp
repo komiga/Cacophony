@@ -12,12 +12,13 @@ see @ref index or the accompanying LICENSE file for full text.
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
-#include <Cacophony/detail/gr_core.hpp>
 #include <Cacophony/support/string_cfg.hpp>
 
 #include <duct/IO/unicode.hpp>
 
 #include <string>
+
+#include <Cacophony/detail/gr_core.hpp>
 
 namespace Cacophony {
 

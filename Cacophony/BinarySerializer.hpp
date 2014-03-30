@@ -13,7 +13,6 @@ see @ref index or the accompanying LICENSE file for full text.
 #include <Cacophony/config.hpp>
 #include <Cacophony/traits.hpp>
 #include <Cacophony/utility.hpp>
-#include <Cacophony/detail/gr_core.hpp>
 #include <Cacophony/InputSerializer.hpp>
 #include <Cacophony/OutputSerializer.hpp>
 #include <Cacophony/support/binary_blob.hpp>
@@ -24,6 +23,8 @@ see @ref index or the accompanying LICENSE file for full text.
 
 #include <type_traits>
 #include <iostream>
+
+#include <Cacophony/detail/gr_core.hpp>
 
 namespace Cacophony {
 
