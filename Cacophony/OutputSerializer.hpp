@@ -60,6 +60,18 @@ protected:
 	OutputSerializer& operator=(OutputSerializer&&) = default;
 /// @}
 
+private:
+	template<class T>
+	static constexpr unsigned
+	traits() noexcept {
+		return
+			has_member_serialize	<impl_type, T>::value +
+			has_non_member_serialize<impl_type, T>::value +
+			has_member_write		<impl_type, T>::value +
+			has_non_member_write	<impl_type, T>::value
+		;
+	}
+
 public:
 /** @name Value processing */ /// @{
 	/**
@@ -69,14 +81,23 @@ public:
 		given value.
 	*/
 	template<class T>
-	enable<1u == (
-		has_member_serialize<impl_type, T>::value +
-		has_non_member_serialize<impl_type, T>::value +
-		has_member_write<impl_type, T>::value +
-		has_non_member_write<impl_type, T>::value
-	)>
+	enable<1u == traits<T>()>
 	process_impl(T const& value) {
 		accessor::out(base_type::impl(), value);
+	}
+
+	template<class T>
+	enable<1u != traits<T>()>
+	process_impl(T const&) {
+		static_assert(
+			0u != traits<T>(),
+			"neither serialize() nor write() have been defined for T"
+		);
+		static_assert(
+			1u >= traits<T>(),
+			"serialization of T is ambiguous because it has multiple"
+			" output serialization function definitions"
+		);
 	}
 /// @}
 };
