@@ -29,15 +29,15 @@ struct unimplemented {};
 // captures
 template<class... P>
 Cacophony::detail::unimplemented
-serialize(P&&...);
+serialize(Cacophony::tag_serialize, P&&...);
 
 template<class... P>
 Cacophony::detail::unimplemented
-read(P&&...);
+read(Cacophony::tag_read, P&&...);
 
 template<class... P>
 Cacophony::detail::unimplemented
-write(P&&...);
+write(Cacophony::tag_write, P&&...);
 
 /** @endcond */ // INTERNAL
 
@@ -125,6 +125,7 @@ struct has_non_member_serialize_impl {
 	using reversed_type = std::is_same<
 		detail::unimplemented,
 		decltype(serialize(
+			tag_serialize{},
 			std::declval<ser_type&>(),
 			std::declval<value_type&>()
 		))
@@ -140,6 +141,7 @@ struct has_non_member_read_impl {
 	using reversed_type = std::is_same<
 		detail::unimplemented,
 		decltype(read(
+			tag_read{},
 			std::declval<ser_type&>(),
 			std::declval<value_type&>()
 		))
@@ -155,6 +157,7 @@ struct has_non_member_write_impl {
 	using reversed_type = std::is_same<
 		detail::unimplemented,
 		decltype(write(
+			tag_write{},
 			std::declval<ser_type&>(),
 			std::declval<value_type const&>()
 		))
@@ -181,7 +184,7 @@ public:
 		using value_type = bare_type<T>;
 
 		template<class U>
-		static auto match(void(U::*)(ser_type&)) -> U;
+		static auto match(void(U::*)(tag_serialize, ser_type&)) -> U;
 
 		template<class U>
 		using is_t = typename std::is_same<value_type, U>::type;
@@ -205,7 +208,7 @@ public:
 		using value_type = bare_type<T>;
 
 		template<class U>
-		static auto match(void(U::*)(ser_type&)) -> U;
+		static auto match(void(U::*)(tag_read, ser_type&)) -> U;
 
 		template<class U>
 		using is_t = typename std::is_same<value_type, U>::type;
@@ -229,7 +232,7 @@ public:
 		using value_type = bare_type<T>;
 
 		template<class U>
-		static auto match(void(U::*)(ser_type&) const) -> U;
+		static auto match(void(U::*)(tag_write, ser_type&) const) -> U;
 
 		template<class U>
 		using is_t = typename std::is_same<value_type, U>::type;
@@ -259,25 +262,25 @@ public:
 	template<class Ser, class T>
 	static inline enable_ser<has_member_serialize_impl<Ser, bare_type<T>>::value>
 	in(Ser& ser, T&& value) {
-		value.serialize(ser);
+		value.serialize(tag_serialize{}, ser);
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_non_member_serialize_impl<Ser, bare_type<T>>::value>
 	in(Ser& ser, T&& value) {
-		serialize(ser, value);
+		serialize(tag_serialize{}, ser, value);
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_member_read_impl<Ser, bare_type<T>>::value>
 	in(Ser& ser, T&& value) {
-		value.read(ser);
+		value.read(tag_read{}, ser);
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_non_member_read_impl<Ser, bare_type<T>>::value>
 	in(Ser& ser, T&& value) {
-		read(ser, value);
+		read(tag_read{}, ser, value);
 	}
 	/** @} */
 
@@ -292,25 +295,25 @@ public:
 	template<class Ser, class T>
 	static inline enable_ser<has_member_serialize_impl<Ser, T>::value>
 	out(Ser& ser, T const& value) {
-		const_cast<bare_type<T>&>(value).serialize(ser);
+		const_cast<bare_type<T>&>(value).serialize(tag_serialize{}, ser);
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_non_member_serialize_impl<Ser, T>::value>
 	out(Ser& ser, T const& value) {
-		serialize(ser, const_cast<bare_type<T>&>(value));
+		serialize(tag_serialize{}, ser, const_cast<bare_type<T>&>(value));
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_member_write_impl<Ser, T>::value>
 	out(Ser& ser, T const& value) {
-		value.write(ser);
+		value.write(tag_write{}, ser);
 	}
 
 	template<class Ser, class T>
 	static inline enable_ser<has_non_member_write_impl<Ser, T>::value>
 	out(Ser& ser, T const& value) {
-		write(ser, value);
+		write(tag_write{}, ser, value);
 	}
 	/** @} */
 };
@@ -417,87 +420,6 @@ struct is_binary_serializable
 		std::is_arithmetic<bare_type<T>>::value
 	>
 {};
-
-/**
-	@c serialize() function return tag.
-
-	@note This always constrains by is_serializer.
-
-	@tparam Ser %Serializer type.
-	@tparam constraints Additional constraints.
-*/
-template<class Ser, bool const constraints = true>
-using tag_serialize = enable_ser<
-	is_serializer<Ser>::value &&
-	constraints
->;
-
-/**
-	Loose @c serialize() function return tag.
-
-	@note This tag assumes the serializer type has already been
-	validated.
-
-	@tparam constraints Constraints.
-*/
-template<bool const constraints = true>
-using tag_serialize_loose = enable_ser<
-	constraints
->;
-
-/**
-	@c read() function return tag.
-
-	@note This always constrains by is_input_serializer.
-
-	@tparam Ser %Serializer type.
-	@tparam constraints Additional constraints.
-*/
-template<class Ser, bool const constraints = true>
-using tag_read = enable_ser<
-	is_input_serializer<Ser>::value &&
-	constraints
->;
-
-/**
-	Loose @c read() function return tag.
-
-	@note This tag assumes the serializer type has already been
-	validated.
-
-	@tparam constraints Constraints.
-*/
-template<bool const constraints = true>
-using tag_read_loose = enable_ser<
-	constraints
->;
-
-/**
-	@c write() function return tag.
-
-	@note This always constrains by is_output_serializer.
-
-	@tparam Ser %Serializer type.
-	@tparam constraints Additional constraints.
-*/
-template<class Ser, bool const constraints = true>
-using tag_write = enable_ser<
-	is_output_serializer<Ser>::value &&
-	constraints
->;
-
-/**
-	Loose @c write() function return tag.
-
-	@note This tag assumes the serializer type has already been
-	validated.
-
-	@tparam constraints Constraints.
-*/
-template<bool const constraints = true>
-using tag_write_loose = enable_ser<
-	constraints
->;
 
 /** @} */ // end of doc-group traits
 

@@ -11,7 +11,7 @@ see @ref index or the accompanying LICENSE file for full text.
 #define CACOPHONY_SUPPORT_STD_STRING_HPP_
 
 #include <Cacophony/config.hpp>
-#include <Cacophony/traits.hpp>
+#include <Cacophony/types.hpp>
 #include <Cacophony/detail/gr_core.hpp>
 #include <Cacophony/support/string_cfg.hpp>
 
@@ -66,8 +66,9 @@ make_string_cfg(
 
 #define CACOPHONY_SCOPE_FUNC read
 template<class S, class T>
-inline tag_read_loose<>
+inline ser_result_type
 read(
+	tag_read,
 	BinaryInputSerializer& ser,
 	string_cfg<S, T, false>& cfg
 ) {
@@ -92,8 +93,9 @@ read(
 
 #define CACOPHONY_SCOPE_FUNC write
 template<class S, class T, bool const C>
-inline tag_write_loose<>
+inline ser_result_type
 write(
+	tag_write,
 	BinaryOutputSerializer& ser,
 	string_cfg<S, T, C> const& cfg
 ) {
@@ -115,8 +117,9 @@ write(
 #undef CACOPHONY_CHECK_IO_ERROR
 
 template<class Ser, class T, class Traits, class Alloc>
-inline tag_read<Ser>
+inline ser_result_type
 read(
+	tag_read,
 	Ser& ser,
 	std::basic_string<T, Traits, Alloc>& str
 ) {
@@ -124,8 +127,9 @@ read(
 }
 
 template<class Ser, class T, class Traits, class Alloc>
-inline tag_write<Ser>
+inline ser_result_type
 write(
+	tag_write,
 	Ser& ser,
 	std::basic_string<T, Traits, Alloc> const& str
 ) {

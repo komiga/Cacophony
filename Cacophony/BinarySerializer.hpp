@@ -165,10 +165,11 @@ public:
 
 #define CACOPHONY_SCOPE_FUNC read
 template<class T>
-inline tag_read_loose<
+inline enable_ser<
 	std::is_arithmetic<bare_type<T>>::value
 >
 read(
+	tag_read,
 	BinaryInputSerializer& ser,
 	T& value
 ) {
@@ -181,10 +182,11 @@ read(
 
 #define CACOPHONY_SCOPE_FUNC write
 template<class T>
-inline tag_write_loose<
+inline enable_ser<
 	std::is_arithmetic<bare_type<T>>::value
 >
 write(
+	tag_write,
 	BinaryOutputSerializer& ser,
 	T const& value
 ) {
@@ -199,10 +201,11 @@ write(
 
 #define CACOPHONY_SCOPE_FUNC read
 template<class T>
-inline tag_read_loose<
+inline enable_ser<
 	std::is_arithmetic<bare_type<T>>::value
 >
 read(
+	tag_read,
 	BinaryInputSerializer& ser,
 	sequence<T>& seq
 ) {
@@ -219,10 +222,11 @@ read(
 
 #define CACOPHONY_SCOPE_FUNC write
 template<class T>
-inline tag_write_loose<
+inline enable_ser<
 	std::is_arithmetic<bare_type<T>>::value
 >
 write(
+	tag_write,
 	BinaryOutputSerializer& ser,
 	sequence<T> const& seq
 ) {
@@ -241,11 +245,12 @@ write(
 
 #define CACOPHONY_SCOPE_FUNC read
 template<class T>
-inline tag_read_loose<
+inline enable_ser<
 	!std::is_arithmetic<bare_type<T>>::value &&
 	is_binary_serializable<bare_type<T>>::value
 >
 read(
+	tag_read,
 	BinaryInputSerializer& ser,
 	sequence<T>& seq
 ) {
@@ -261,11 +266,12 @@ read(
 
 #define CACOPHONY_SCOPE_FUNC write
 template<class T>
-inline tag_write_loose<
+inline enable_ser<
 	!std::is_arithmetic<bare_type<T>>::value &&
 	is_binary_serializable<bare_type<T>>::value
 >
 write(
+	tag_write,
 	BinaryOutputSerializer& ser,
 	sequence<T> const& seq
 ) {
@@ -282,8 +288,9 @@ write(
 // binary_blob
 
 #define CACOPHONY_SCOPE_FUNC read
-inline tag_read_loose<>
+inline ser_result_type
 read(
+	tag_read,
 	BinaryInputSerializer& ser,
 	binary_blob<false>& blob
 ) {
@@ -299,8 +306,9 @@ read(
 
 #define CACOPHONY_SCOPE_FUNC write
 template<bool const C>
-inline tag_write_loose<>
+inline ser_result_type
 write(
+	tag_write,
 	BinaryOutputSerializer& ser,
 	binary_blob<C> const& blob
 ) {

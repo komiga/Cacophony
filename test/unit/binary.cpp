@@ -24,8 +24,8 @@ struct X1 {
 	std::vector<float> v;
 
 	template<class Ser>
-	inline Cacophony::tag_serialize<Ser>
-	serialize(Ser& ser) {
+	inline void
+	serialize(Cacophony::tag_serialize, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(
 			self.u,
@@ -69,15 +69,15 @@ private:
 	friend class Cacophony::accessor;
 
 	template<class Ser>
-	inline Cacophony::tag_read<Ser>
-	read(Ser& ser) {
+	inline void
+	read(Cacophony::tag_read, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(self.a);
 	}
 
 	template<class Ser>
-	inline Cacophony::tag_write<Ser>
-	write(Ser& ser) const {
+	inline void
+	write(Cacophony::tag_write, Ser& ser) const {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(self.a);
 	}
@@ -102,8 +102,8 @@ struct X2 : public X2Base {
 	{}
 
 	template<class Ser>
-	inline Cacophony::tag_serialize<Ser>
-	serialize(Ser& ser) {
+	inline void
+	serialize(Cacophony::tag_serialize, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(
 			Cacophony::base_cast<X2Base>(self),

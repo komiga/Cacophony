@@ -16,6 +16,11 @@ see @ref index or the accompanying LICENSE file for full text.
 
 namespace Cacophony {
 
+// Forward declarations
+enum class tag_serialize : unsigned;
+enum class tag_read : unsigned;
+enum class tag_write : unsigned;
+
 /**
 	@addtogroup types
 	@{
@@ -30,6 +35,21 @@ using ser_result_type = void;
 	Default size type for collections.
 */
 using default_size_type = std::uint32_t;
+
+/**
+	serialize() function tag.
+*/
+enum class tag_serialize : unsigned {};
+
+/**
+	read() function tag.
+*/
+enum class tag_read : unsigned {};
+
+/**
+	write() function tag.
+*/
+enum class tag_write : unsigned {};
 
 /**
 	SFINAE.

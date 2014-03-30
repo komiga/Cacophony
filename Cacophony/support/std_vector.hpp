@@ -11,7 +11,7 @@ see @ref index or the accompanying LICENSE file for full text.
 #define CACOPHONY_SUPPORT_STD_VECTOR_HPP_
 
 #include <Cacophony/config.hpp>
-#include <Cacophony/traits.hpp>
+#include <Cacophony/types.hpp>
 #include <Cacophony/support/vector_cfg.hpp>
 
 #include <vector>
@@ -52,8 +52,9 @@ make_vector_cfg(
 /** @cond INTERNAL */
 
 template<class Ser, class T, class Alloc>
-inline tag_read<Ser>
+inline ser_result_type
 read(
+	tag_read,
 	Ser& ser,
 	std::vector<T, Alloc>& vec
 ) {
@@ -61,8 +62,9 @@ read(
 }
 
 template<class Ser, class T, class Alloc>
-inline tag_write<Ser>
+inline ser_result_type
 write(
+	tag_write,
 	Ser& ser,
 	std::vector<T, Alloc> const& vec
 ) {

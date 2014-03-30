@@ -74,6 +74,7 @@ inline enable_ser<
 	!is_binary_serializable<bare_type<T>>::value
 >
 serialize(
+	tag_serialize,
 	Ser& ser,
 	sequence<T>& seq
 ) {

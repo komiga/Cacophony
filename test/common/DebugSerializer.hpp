@@ -82,6 +82,7 @@ inline Cacophony::enable_ser<
 	std::is_arithmetic<Cacophony::bare_type<T>>::value
 >
 read(
+	Cacophony::tag_read,
 	DebugInputSerializer& /*ser*/,
 	T&& /*value*/
 ) {}
@@ -91,6 +92,7 @@ inline Cacophony::enable_ser<
 	std::is_arithmetic<Cacophony::bare_type<T>>::value
 >
 write(
+	Cacophony::tag_write,
 	DebugOutputSerializer& /*ser*/,
 	T const& value
 ) {
@@ -104,6 +106,7 @@ inline Cacophony::enable_ser<
 	Cacophony::is_binary_serializable<Cacophony::bare_type<T>>::value
 >
 read(
+	Cacophony::tag_read,
 	DebugInputSerializer& /*ser*/,
 	Cacophony::sequence<T>& /*seq*/
 ) {}
@@ -113,6 +116,7 @@ inline Cacophony::enable_ser<
 	Cacophony::is_binary_serializable<Cacophony::bare_type<T>>::value
 >
 write(
+	Cacophony::tag_write,
 	DebugOutputSerializer& /*ser*/,
 	Cacophony::sequence<T> const& /*seq*/
 ) {}

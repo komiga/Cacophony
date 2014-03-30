@@ -2,8 +2,8 @@
 #include "./../common/traits.hpp"
 #include "./../common/DebugSerializer.hpp"
 
+#include <Cacophony/types.hpp>
 #include <Cacophony/utility.hpp>
-#include <Cacophony/traits.hpp>
 #include <Cacophony/support/std_vector.hpp>
 
 #include <vector>
@@ -25,8 +25,8 @@ public:
 };
 
 template<class Ser>
-inline Cacophony::tag_serialize<Ser>
-serialize(Ser& ser, NonBinary& value) {
+inline void
+serialize(Cacophony::tag_serialize, Ser& ser, NonBinary& value) {
 	auto& self = Cacophony::const_safe<Ser>(value);
 	(void)ser;
 	(void)self;
@@ -57,10 +57,17 @@ both(T&& value) {
 
 signed
 main() {
+	print_traits<ISer, OSer, int>();
+	print_traits<ISer, OSer, int const>();
+	print_traits<ISer, OSer, Cacophony::sequence<int>>();
+	std::cout << std::endl;
+
+	print_traits<ISer, OSer, NonBinary>();
+	print_traits<ISer, OSer, NonBinary const>();
 	print_traits<ISer, OSer, Cacophony::sequence<NonBinary>>();
 	print_traits<ISer, OSer, Cacophony::sequence<NonBinary> const>();
 	print_traits<ISer, OSer, Cacophony::sequence<NonBinary const>>();
-	print_traits<ISer, OSer, Cacophony::sequence<int>>();
+	std::cout << std::endl;
 
 	NonBinary const nb1{};
 	output(nb1);
