@@ -25,7 +25,7 @@ public:
 };
 
 template<class Ser>
-inline void
+inline Cacophony::ser_result_type
 serialize(Cacophony::tag_serialize, Ser& ser, NonBinary& value) {
 	auto& self = Cacophony::const_safe<Ser>(value);
 	(void)ser;

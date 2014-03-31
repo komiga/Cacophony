@@ -1,8 +1,9 @@
 
 #include "./../common/traits.hpp"
 
-#include <Cacophony/utility.hpp>
+#include <Cacophony/types.hpp>
 #include <Cacophony/traits.hpp>
+#include <Cacophony/utility.hpp>
 #include <Cacophony/BinarySerializer.hpp>
 #include <Cacophony/support/std_string.hpp>
 #include <Cacophony/support/std_vector.hpp>
@@ -24,7 +25,7 @@ struct X1 {
 	std::vector<float> v;
 
 	template<class Ser>
-	inline void
+	inline Cacophony::ser_result_type
 	serialize(Cacophony::tag_serialize, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(
@@ -69,14 +70,14 @@ private:
 	friend class Cacophony::accessor;
 
 	template<class Ser>
-	inline void
+	inline Cacophony::ser_result_type
 	read(Cacophony::tag_read, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(self.a);
 	}
 
 	template<class Ser>
-	inline void
+	inline Cacophony::ser_result_type
 	write(Cacophony::tag_write, Ser& ser) const {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(self.a);
@@ -102,7 +103,7 @@ struct X2 : public X2Base {
 	{}
 
 	template<class Ser>
-	inline void
+	inline Cacophony::ser_result_type
 	serialize(Cacophony::tag_serialize, Ser& ser) {
 		auto& self = Cacophony::const_safe<Ser>(*this);
 		ser(
