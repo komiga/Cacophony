@@ -66,11 +66,14 @@ make_string_cfg(
 	}
 
 #define CACOPHONY_SCOPE_FUNC read
-template<class S, class T>
-inline ser_result_type
+template<class Ser, class S, class T>
+inline enable_ser_of<
+	Ser,
+	BinaryInputSerializer
+>
 read(
 	tag_read,
-	BinaryInputSerializer& ser,
+	Ser& ser,
 	string_cfg<S, T, false>& cfg
 ) {
 	S size{};
@@ -93,11 +96,14 @@ read(
 #undef CACOPHONY_SCOPE_FUNC
 
 #define CACOPHONY_SCOPE_FUNC write
-template<class S, class T, bool const C>
-inline ser_result_type
+template<class Ser, class S, class T, bool const C>
+inline enable_ser_of<
+	Ser,
+	BinaryOutputSerializer
+>
 write(
 	tag_write,
-	BinaryOutputSerializer& ser,
+	Ser& ser,
 	string_cfg<S, T, C> const& cfg
 ) {
 	DUCT_ASSERTE(std::numeric_limits<S>::max() >= cfg.str.size());
