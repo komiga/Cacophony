@@ -65,13 +65,9 @@ make_binary_blob(
 	std::size_t const size
 ) noexcept {
 	return {
-		static_cast<typename std::conditional<
-			std::is_const<T>::value,
-			void const*,
-			void*
-		>::type>(
-			ptr
-		),
+		static_cast<
+			typename binary_blob<std::is_const<T>::value>::type
+		>(ptr),
 		size
 	};
 }
