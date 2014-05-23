@@ -32,6 +32,9 @@ struct sequence;
 /**
 	Sequence of objects.
 
+	@note Serialization:
+	-# elements
+
 	@tparam T Value type.
 */
 template<class T>

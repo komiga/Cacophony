@@ -29,6 +29,9 @@ struct binary_blob;
 /**
 	Binary blob.
 
+	@note Serialization:
+	-# data
+
 	@tparam C Whether the blob is immutable.
 */
 template<bool const C>

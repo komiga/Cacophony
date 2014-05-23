@@ -43,6 +43,11 @@ struct vector_cfg;
 	integral type by default. @a V must have the same interface as
 	@c std::vector for the default serialization to work.
 
+	@par
+	@note Serialization:
+	-# size
+	-# sequence{elements}
+
 	@tparam S Size type.
 	@tparam V Vector type.
 	@tparam C Whether the value type is immutable.

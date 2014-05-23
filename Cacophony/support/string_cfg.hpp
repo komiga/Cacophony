@@ -43,6 +43,11 @@ struct string_cfg;
 	integral type by default. @a T must have the same interface as
 	@c std::string for the default serialization to work.
 
+	@par
+	@note Serialization:
+	-# size
+	-# string data
+
 	@tparam S Size type.
 	@tparam T Vector type.
 	@tparam C Whether the value type is immutable.
