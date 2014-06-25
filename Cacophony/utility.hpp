@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_UTILITY_HPP_
-#define CACOPHONY_UTILITY_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -70,4 +69,3 @@ base_cast(D& obj) {
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_UTILITY_HPP_

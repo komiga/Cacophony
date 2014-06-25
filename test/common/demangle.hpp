@@ -1,6 +1,5 @@
 
-#ifndef CACOPHONY_TEST_COMMON_DEMANGLE_HPP_
-#define CACOPHONY_TEST_COMMON_DEMANGLE_HPP_
+#pragma once
 
 #include <cstddef>
 #include <cstdlib>
@@ -33,4 +32,3 @@ demangle() {
 	return demangle_name(typeid(T).name());
 }
 
-#endif // CACOPHONY_TEST_COMMON_DEMANGLE_HPP_

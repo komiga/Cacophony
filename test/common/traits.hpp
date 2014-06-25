@@ -1,6 +1,5 @@
 
-#ifndef CACOPHONY_TEST_COMMON_TRAITS_HPP_
-#define CACOPHONY_TEST_COMMON_TRAITS_HPP_
+#pragma once
 
 #include "./demangle.hpp"
 
@@ -56,4 +55,3 @@ print_traits() {
 	;
 }
 
-#endif // CACOPHONY_TEST_COMMON_TRAITS_HPP_

@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_SUPPORT_STRING_CFG_HPP_
-#define CACOPHONY_SUPPORT_STRING_CFG_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -83,4 +82,3 @@ struct string_cfg final {
 //} // namespace support
 } // namespace Cacophony
 
-#endif // CACOPHONY_SUPPORT_STRING_CFG_HPP_

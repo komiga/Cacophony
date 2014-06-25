@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_OUTPUTSERIALIZER_HPP_
-#define CACOPHONY_OUTPUTSERIALIZER_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -106,4 +105,3 @@ public:
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_OUTPUTSERIALIZER_HPP_

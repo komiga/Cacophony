@@ -1,6 +1,5 @@
 
-#ifndef CACOPHONY_TEST_COMMON_DEBUGSERIALIZER_HPP_
-#define CACOPHONY_TEST_COMMON_DEBUGSERIALIZER_HPP_
+#pragma once
 
 #include <Cacophony/types.hpp>
 #include <Cacophony/traits.hpp>
@@ -121,4 +120,3 @@ write(
 	Cacophony::sequence<T> const& /*seq*/
 ) {}
 
-#endif // CACOPHONY_TEST_COMMON_DEBUGSERIALIZER_HPP_

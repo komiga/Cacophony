@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_STRING_HPP_
-#define CACOPHONY_STRING_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/aux.hpp>
@@ -45,4 +44,3 @@ using String = aux::basic_string<char>;
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_STRING_HPP_

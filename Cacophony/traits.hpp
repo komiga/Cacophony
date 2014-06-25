@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_TRAITS_HPP_
-#define CACOPHONY_TRAITS_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -425,4 +424,3 @@ struct is_binary_serializable
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_TRAITS_HPP_

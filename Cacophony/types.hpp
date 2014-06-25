@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_TYPES_HPP_
-#define CACOPHONY_TYPES_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 
@@ -96,4 +95,3 @@ using enable_ser_of = enable<
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_TYPES_HPP_

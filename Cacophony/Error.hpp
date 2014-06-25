@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_ERROR_HPP_
-#define CACOPHONY_ERROR_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/ErrorCode.hpp>
@@ -82,4 +81,3 @@ get_error_name(
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_ERROR_HPP_

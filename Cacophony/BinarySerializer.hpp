@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_BINARYSERIALIZER_HPP_
-#define CACOPHONY_BINARYSERIALIZER_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/traits.hpp>
@@ -333,4 +332,3 @@ write(
 
 #include <Cacophony/detail/gr_unconfigure.hpp>
 
-#endif // CACOPHONY_BINARYSERIALIZER_HPP_

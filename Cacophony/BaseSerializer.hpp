@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_BASESERIALIZER_HPP_
-#define CACOPHONY_BASESERIALIZER_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 
@@ -136,4 +135,3 @@ public:
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_BASESERIALIZER_HPP_

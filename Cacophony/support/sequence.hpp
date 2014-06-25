@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_SUPPORT_SEQUENCE_HPP_
-#define CACOPHONY_SUPPORT_SEQUENCE_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -95,4 +94,3 @@ serialize(
 //} // namespace support
 } // namespace Cacophony
 
-#endif // CACOPHONY_SUPPORT_SEQUENCE_HPP_

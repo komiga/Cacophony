@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_ERRORCODE_HPP_
-#define CACOPHONY_ERRORCODE_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 
@@ -54,4 +53,3 @@ enum class ErrorCode : unsigned {
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_ERRORCODE_HPP_

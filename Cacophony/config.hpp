@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_CONFIG_HPP_
-#define CACOPHONY_CONFIG_HPP_
+#pragma once
 
 #include <cstddef>
 #include <cstdint>
@@ -37,4 +36,3 @@ namespace Cacophony {
 
 } // namespace Cacophony
 
-#endif // CACOPHONY_CONFIG_HPP_

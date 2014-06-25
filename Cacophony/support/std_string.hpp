@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_SUPPORT_STD_STRING_HPP_
-#define CACOPHONY_SUPPORT_STD_STRING_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 #include <Cacophony/types.hpp>
@@ -152,4 +151,3 @@ write(
 
 #include <Cacophony/detail/gr_unconfigure.hpp>
 
-#endif // CACOPHONY_SUPPORT_STD_STRING_HPP_

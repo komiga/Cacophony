@@ -7,8 +7,7 @@
 see @ref index or the accompanying LICENSE file for full text.
 */
 
-#ifndef CACOPHONY_SUPPORT_BINARY_BLOB_HPP_
-#define CACOPHONY_SUPPORT_BINARY_BLOB_HPP_
+#pragma once
 
 #include <Cacophony/config.hpp>
 
@@ -80,4 +79,3 @@ make_binary_blob(
 //} // namespace support
 } // namespace Cacophony
 
-#endif // CACOPHONY_SUPPORT_BINARY_BLOB_HPP_
