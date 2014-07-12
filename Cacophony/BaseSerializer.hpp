@@ -134,4 +134,3 @@ public:
 /** @} */ // end of doc-group serializer
 
 } // namespace Cacophony
-

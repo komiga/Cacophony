@@ -31,4 +31,3 @@ inline std::string
 demangle() {
 	return demangle_name(typeid(T).name());
 }
-

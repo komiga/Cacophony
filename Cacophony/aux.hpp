@@ -43,4 +43,3 @@ using basic_string
 
 } // namespace aux
 } // namespace Cacophony
-

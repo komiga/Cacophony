@@ -54,4 +54,3 @@ print_traits() {
 		<< std::endl
 	;
 }
-

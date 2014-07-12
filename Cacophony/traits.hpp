@@ -423,4 +423,3 @@ struct is_binary_serializable
 /** @} */ // end of doc-group traits
 
 } // namespace Cacophony
-

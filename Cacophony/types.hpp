@@ -94,4 +94,3 @@ using enable_ser_of = enable<
 /** @} */ // end of doc-group types
 
 } // namespace Cacophony
-

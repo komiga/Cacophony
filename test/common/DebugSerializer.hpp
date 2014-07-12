@@ -119,4 +119,3 @@ write(
 	DebugOutputSerializer& /*ser*/,
 	Cacophony::sequence<T> const& /*seq*/
 ) {}
-

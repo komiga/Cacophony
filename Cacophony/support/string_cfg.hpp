@@ -81,4 +81,3 @@ struct string_cfg final {
 
 //} // namespace support
 } // namespace Cacophony
-

@@ -43,4 +43,3 @@ using String = aux::basic_string<char>;
 /** @} */ // end of doc-group etc
 
 } // namespace Cacophony
-

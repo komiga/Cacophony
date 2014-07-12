@@ -68,4 +68,3 @@ base_cast(D& obj) {
 /** @} */ // end of doc-group etc
 
 } // namespace Cacophony
-

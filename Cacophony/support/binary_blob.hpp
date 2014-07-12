@@ -78,4 +78,3 @@ make_binary_blob(
 
 //} // namespace support
 } // namespace Cacophony
-

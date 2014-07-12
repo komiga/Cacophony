@@ -35,4 +35,3 @@ namespace Cacophony {
 /** @} */ // end of doc-group config
 
 } // namespace Cacophony
-
