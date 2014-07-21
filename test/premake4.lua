@@ -22,6 +22,9 @@ function make_test(group, name, srcglob, configs)
 		files {
 			srcglob
 		}
+
+	configuration {"linux"}
+		targetsuffix(".elf")
 end
 
 function make_tests(group, tests)
