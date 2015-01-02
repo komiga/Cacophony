@@ -15,18 +15,6 @@ end
 
 import_precore()
 
--- Utilities
-
-function action_clean()
-	if "clean" == _ACTION then
-		for _, pc_sol in pairs(precore.state.solutions) do
-			for _, pc_proj in pairs(pc_sol.projects) do
-				os.rmdir(path.join(pc_proj.obj.basedir, "out"))
-			end
-		end
-	end
-end
-
 -- Custom precore configs
 
 precore.make_config(
