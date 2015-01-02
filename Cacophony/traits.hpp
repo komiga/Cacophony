@@ -164,6 +164,7 @@ struct has_non_member_write_impl {
 	using type = std::integral_constant<bool, !reversed_type::value>;
 	static constexpr bool const value = type::value;
 };
+
 /** @endcond */ // INTERNAL
 
 /**
@@ -411,6 +412,9 @@ struct is_output_serializable
 	//static_assert();
 };
 
+/**
+	Whether a type is binary serializable.
+*/
 template<class T>
 struct is_binary_serializable
 	: public std::integral_constant<
