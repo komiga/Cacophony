@@ -36,7 +36,7 @@ template<class T>
 void
 input(T&& value) {
 	std::cout << "input:\n";
-	s_iser(value);
+	s_iser(std::forward<T>(value));
 	std::cout << std::endl;
 }
 
@@ -44,7 +44,7 @@ template<class T>
 void
 output(T&& value) {
 	std::cout << "output:\n";
-	s_oser(value);
+	s_oser(std::forward<T>(value));
 	std::cout << std::endl;
 }
 
@@ -74,7 +74,9 @@ main() {
 	NonBinary nb2{};
 	both(nb2);
 
-	output(std::vector<NonBinary>{1});
+	output(Cacophony::make_vector_cfg<Cacophony::default_size_type>(std::vector<NonBinary>{1}));
+	std::vector<NonBinary> in{1};
+	input(Cacophony::make_vector_cfg<Cacophony::default_size_type>(in));
 	std::vector<NonBinary> vnb{2};
 	both(vnb);
 
