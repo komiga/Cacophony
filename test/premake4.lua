@@ -52,4 +52,4 @@ precore.make_solution(
 include("general")
 include("unit")
 
-action_clean()
+precore.action_clean("out")
