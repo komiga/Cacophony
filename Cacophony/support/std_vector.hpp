@@ -1,5 +1,5 @@
 /**
-@file support/std_vector.hpp
+@file
 @brief Serialization support for @c std::vector.
 
 @author Timothy Howard

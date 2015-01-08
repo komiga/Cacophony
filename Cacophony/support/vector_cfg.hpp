@@ -1,5 +1,5 @@
 /**
-@file support/vector_cfg.hpp
+@file
 @brief Vector serialization configuration.
 
 @author Timothy Howard

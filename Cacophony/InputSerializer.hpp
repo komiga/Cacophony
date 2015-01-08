@@ -1,5 +1,5 @@
 /**
-@file InputSerializer.hpp
+@file
 @brief Input serializer.
 
 @author Timothy Howard

@@ -1,5 +1,5 @@
 /**
-@file BinarySerializer.hpp
+@file
 @brief Binary serializers.
 
 @author Timothy Howard

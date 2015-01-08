@@ -1,5 +1,5 @@
 /**
-@file types.hpp
+@file
 @brief Common types.
 
 @author Timothy Howard

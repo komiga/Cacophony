@@ -1,5 +1,5 @@
 /**
-@file support/enum_cfg.hpp
+@file
 @brief Enum serialization configuration.
 
 @author Timothy Howard

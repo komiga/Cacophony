@@ -1,5 +1,5 @@
 /**
-@file OutputSerializer.hpp
+@file
 @brief Output serializer.
 
 @author Timothy Howard

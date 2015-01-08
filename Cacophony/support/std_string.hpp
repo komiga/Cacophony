@@ -1,5 +1,5 @@
 /**
-@file support/std_string.hpp
+@file
 @brief Serialization support for @c std::string.
 
 @author Timothy Howard

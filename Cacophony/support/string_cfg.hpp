@@ -1,5 +1,5 @@
 /**
-@file support/string_cfg.hpp
+@file
 @brief String serialization configuration.
 
 @author Timothy Howard

@@ -1,5 +1,5 @@
 /**
-@file BaseSerializer.hpp
+@file
 @brief Base serializer.
 
 @author Timothy Howard

@@ -1,5 +1,5 @@
 /**
-@file support/binary_blob.hpp
+@file
 @brief Binary blob.
 
 @author Timothy Howard

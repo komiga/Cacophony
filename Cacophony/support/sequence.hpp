@@ -1,5 +1,5 @@
 /**
-@file support/sequence.hpp
+@file
 @brief Sequence.
 
 @author Timothy Howard
