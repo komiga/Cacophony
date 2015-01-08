@@ -1,10 +1,8 @@
 /**
+@copyright MIT license; see @ref index or the accompanying LICENSE file.
+
 @file
 @brief Serialization support for @c std::string.
-
-@author Timothy Howard
-@copyright 2014 Timothy Howard under the MIT license;
-see @ref index or the accompanying LICENSE file for full text.
 */
 
 #pragma once
