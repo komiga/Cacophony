@@ -58,7 +58,7 @@ make_string_cfg(
 /** @cond INTERNAL */
 
 #define CACOPHONY_CHECK_IO_ERROR(m_) \
-	if (ser.get_stream().fail()) {										\
+	if (ser.stream().fail()) {											\
 		CACOPHONY_THROW_FUNC(ErrorCode::serialization_io_failed, m_);	\
 	}
 
@@ -78,10 +78,10 @@ read(
 
 	if (0 < size) {
 		duct::IO::read_string_copy(
-			ser.get_stream(),
+			ser.stream(),
 			cfg.str,
 			size,
-			ser.get_endian()
+			ser.endian()
 		);
 		CACOPHONY_CHECK_IO_ERROR(
 			"failed to read string data from stream"
@@ -107,9 +107,9 @@ write(
 	ser(static_cast<S>(cfg.str.size()));
 	if (!cfg.str.empty()) {
 		duct::IO::write_string_copy(
-			ser.get_stream(),
+			ser.stream(),
 			cfg.str,
-			ser.get_endian()
+			ser.endian()
 		);
 		CACOPHONY_CHECK_IO_ERROR(
 			"failed to write string data to stream"

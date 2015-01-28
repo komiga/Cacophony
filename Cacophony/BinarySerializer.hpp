@@ -79,7 +79,7 @@ public:
 		Get stream.
 	*/
 	std::istream&
-	get_stream() noexcept {
+	stream() noexcept {
 		return m_stream;
 	}
 
@@ -87,7 +87,7 @@ public:
 		Get endian.
 	*/
 	duct::Endian
-	get_endian() const noexcept {
+	endian() const noexcept {
 		return m_endian;
 	}
 /// @}
@@ -138,7 +138,7 @@ public:
 		Get stream.
 	*/
 	std::ostream&
-	get_stream() noexcept {
+	stream() noexcept {
 		return m_stream;
 	}
 
@@ -146,7 +146,7 @@ public:
 		Get endian.
 	*/
 	duct::Endian
-	get_endian() const noexcept {
+	endian() const noexcept {
 		return m_endian;
 	}
 /// @}
@@ -155,7 +155,7 @@ public:
 /** @cond INTERNAL */
 
 #define CACOPHONY_CHECK_IO_ERROR(m_) \
-	if (ser.get_stream().fail()) {										\
+	if (ser.stream().fail()) {										\
 		CACOPHONY_THROW_FUNC(ErrorCode::serialization_io_failed, m_);	\
 	}
 
@@ -171,7 +171,7 @@ read(
 	BinaryInputSerializer& ser,
 	T& value
 ) {
-	duct::IO::read_arithmetic(ser.get_stream(), value, ser.get_endian());
+	duct::IO::read_arithmetic(ser.stream(), value, ser.endian());
 	CACOPHONY_CHECK_IO_ERROR(
 		"failed to read arithmetic type from stream"
 	);
@@ -188,7 +188,7 @@ write(
 	BinaryOutputSerializer& ser,
 	T const& value
 ) {
-	duct::IO::write_arithmetic(ser.get_stream(), value, ser.get_endian());
+	duct::IO::write_arithmetic(ser.stream(), value, ser.endian());
 	CACOPHONY_CHECK_IO_ERROR(
 		"failed to write arithmetic type to stream"
 	);
@@ -208,9 +208,9 @@ read(
 	sequence<T>& seq
 ) {
 	duct::IO::read_arithmetic_array(
-		ser.get_stream(),
+		ser.stream(),
 		seq.ptr, seq.size,
-		ser.get_endian()
+		ser.endian()
 	);
 	CACOPHONY_CHECK_IO_ERROR(
 		"failed to read arithmetic sequence from stream"
@@ -229,9 +229,9 @@ write(
 	sequence<T> const& seq
 ) {
 	duct::IO::write_arithmetic_array(
-		ser.get_stream(),
+		ser.stream(),
 		seq.ptr, seq.size,
-		ser.get_endian()
+		ser.endian()
 	);
 	CACOPHONY_CHECK_IO_ERROR(
 		"failed to write arithmetic sequence to stream"
@@ -252,7 +252,7 @@ read(
 	BinaryInputSerializer& ser,
 	sequence<T>& seq
 ) {
-	ser.get_stream().read(
+	ser.stream().read(
 		reinterpret_cast<char*>(seq.ptr),
 		seq.size * sizeof(T)
 	);
@@ -273,7 +273,7 @@ write(
 	BinaryOutputSerializer& ser,
 	sequence<T> const& seq
 ) {
-	ser.get_stream().write(
+	ser.stream().write(
 		reinterpret_cast<char const*>(seq.ptr),
 		seq.size * sizeof(T)
 	);
@@ -292,7 +292,7 @@ read(
 	BinaryInputSerializer& ser,
 	binary_blob<false>& blob
 ) {
-	ser.get_stream().read(
+	ser.stream().read(
 		static_cast<char*>(blob.ptr),
 		blob.size
 	);
@@ -310,7 +310,7 @@ write(
 	BinaryOutputSerializer& ser,
 	binary_blob<C> const& blob
 ) {
-	ser.get_stream().write(
+	ser.stream().write(
 		static_cast<char const*>(blob.ptr),
 		blob.size
 	);
