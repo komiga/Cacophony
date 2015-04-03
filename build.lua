@@ -5,9 +5,7 @@ precore.make_config_scoped("cacophony.env", {
 	once = true,
 }, {
 {global = function()
-	precore.env_global({
-		CACOPHONY_ROOT = os.getcwd(),
-	}, true)
+	precore.define_group("CACOPHONY", os.getcwd())
 end}})
 
 precore.make_config("cacophony.strict", nil, {
