@@ -1,6 +1,8 @@
 
 local S, G, R = precore.helpers()
 
+precore.import(G"${DEP_PATH}/duct")
+
 precore.make_config_scoped("cacophony.env", {
 	once = true,
 }, {
@@ -42,7 +44,7 @@ precore.make_config("cacophony.dep", nil, {
 {project = function()
 	configuration {}
 		includedirs {
-			S"${CACOPHONY_ROOT}/",
+			G"${CACOPHONY_ROOT}/",
 		}
 end}})
 
@@ -50,4 +52,3 @@ precore.apply_global({
 	"precore.env-common",
 	"cacophony.env",
 })
-precore.import(S"${DEP_PATH}/duct")
