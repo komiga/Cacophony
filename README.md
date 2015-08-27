@@ -33,7 +33,7 @@ Cacophony carries the MIT license, which can be found both below and in the
 `LICENSE` file.
 
 ```
-Copyright (c) 2014-2015 Timothy Howard
+Copyright (c) 2014-2015 plash <plash@komiga.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
