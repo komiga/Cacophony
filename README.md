@@ -25,7 +25,7 @@ All features support Clang 3.3+ with libc++ (SVN head) and GCC with libstdc++
 as early as 4.7.3 (potentially earlier).
 
 Once dependencies are setup (see `dep/README.md`), the tests can be compiled
-using plash's standard project protocol: http://komiga.com/pp-cpp
+using my [standard project protocol](http://komiga.com/pp-cpp).
 
 ## License
 
@@ -33,7 +33,7 @@ Cacophony carries the MIT license, which can be found both below and in the
 `LICENSE` file.
 
 ```
-Copyright (c) 2014-2015 plash <plash@komiga.com>
+Copyright (c) 2014-2015 Coranna Howard <me@komiga.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
